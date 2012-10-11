@@ -77,8 +77,10 @@ for li in list_elements:
     #if count > 5:
     #    break
     print signedUrl
-    root = objectify.parse(signedUrl).getroot()
-    
+    try:
+        root = objectify.parse(signedUrl).getroot()
+    except IOError:
+        next 
     try:
         for item in root.Items.Item:
 
